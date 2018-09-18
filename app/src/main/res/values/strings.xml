@@ -16,4 +16,7 @@
     <string name="dialog_quantity_title">Qty: </string>
     <string name="cart_subtotal">Cart subtotal</string>
     <string name="proceed_to_checkout">Proceed to Checkout</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView(){
-        ViewProductFragment viewProductFragment=new ViewProductFragment();
+        MainFragment mainFragment=new MainFragment();
         FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentContainer,viewProductFragment).commit();
+        fragmentTransaction.replace(R.id.fragmentContainer,mainFragment).commit();
     }
 }

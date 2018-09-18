@@ -9,6 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.qifan.mockamazonapp.databinding.FragmentMainBinding;
+import com.qifan.mockamazonapp.models.Product;
+import com.qifan.mockamazonapp.util.Products;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 /**
@@ -29,6 +35,7 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                              Bundle savedInstanceState) {
     mFragmentMainBinding=FragmentMainBinding.inflate(inflater);
     mFragmentMainBinding.swipeRefreshLayout.setOnRefreshListener(this);
+    setUpProducts();
         return mFragmentMainBinding.getRoot();
     }
 
@@ -37,6 +44,12 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         onItemsLoadComplete();
     }
 
+    public void setUpProducts(){
+        Products products=new Products();
+        List<Product> productList=new ArrayList<>();
+        productList.addAll(Arrays.asList(products.PRODUCTS));
+        mFragmentMainBinding.setProducts(productList);
+    }
     public void onItemsLoadComplete(){
         (mFragmentMainBinding.recyclerView.getAdapter()).notifyDataSetChanged();
         mFragmentMainBinding.swipeRefreshLayout.setRefreshing(false);

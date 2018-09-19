@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.qifan.mockamazonapp.R;
 import com.qifan.mockamazonapp.databinding.ProductItemBinding;
 import com.qifan.mockamazonapp.models.Product;
+import com.qifan.mockamazonapp.util.IMainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Bindin
 
     private List<Product> mProducts=new ArrayList<>();
     private Context mContext;
+    IMainActivity mIMainActivity;
 
     public ProductsAdapter(Context context,List<Product> products){
         mContext=context;
@@ -39,6 +41,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Bindin
     public void onBindViewHolder(@NonNull BindingHolder bindingHolder, int i) {
         Product product=mProducts.get(i);
         bindingHolder.mProductItemBinding.setProduct(product);
+        bindingHolder.mProductItemBinding.setIMainActivity((IMainActivity) mContext);
         bindingHolder.mProductItemBinding.executePendingBindings();
     }
 

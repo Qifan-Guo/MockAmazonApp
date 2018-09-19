@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.qifan.mockamazonapp.databinding.FragmentViewProductBinding;
+import com.qifan.mockamazonapp.models.Product;
 import com.qifan.mockamazonapp.util.Products;
 
 
@@ -19,19 +20,28 @@ import com.qifan.mockamazonapp.util.Products;
 public class ViewProductFragment extends Fragment {
 
     private static final String TAG = "ViewProductFragment";
-
+    private static final String PRODUCT_KEY="product_key";
     // Data binding
     FragmentViewProductBinding mBinding;
-    
+    private Product mProduct;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Bundle bundle=this.getArguments();
+        if(bundle != null){
+            mProduct = bundle.getParcelable(PRODUCT_KEY);
+        }
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBinding = FragmentViewProductBinding.inflate(inflater);
-        
-        Products products = new Products();
-        mBinding.setProduct(products.PRODUCTS[0]);
-    
-        mBinding.setQty(1);
+        ProductViewModel productViewModel=new ProductViewModel();
+        productViewModel.setProduct(mProduct);
+        productViewModel.setQuantity(1);
+        mBinding.setProductView(productViewModel);
 
         return mBinding.getRoot();
     }

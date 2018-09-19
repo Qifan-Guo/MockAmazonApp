@@ -6,6 +6,9 @@
         <variable
             name="product"
             type="com.qifan.mockamazonapp.models.Product"/>
+        <variable
+            name="IMainActivity"
+            type="com.qifan.mockamazonapp.util.IMainActivity"/>
     </data>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -14,7 +17,8 @@
         android:layout_height="300dp"
         android:padding="10dp"
         android:background="@drawable/grey_border"
-        android:id="@+id/item_container">
+        android:id="@+id/item_container"
+        android:onClick="@{()->IMainActivity.inflateDetailView(product)}">
 
         <RelativeLayout
             android:layout_width="match_parent"

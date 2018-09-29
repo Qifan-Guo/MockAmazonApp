@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.qifan.mockamazonapp.databinding.FragmentViewProductBinding;
 import com.qifan.mockamazonapp.models.Product;
+import com.qifan.mockamazonapp.util.IMainActivity;
 import com.qifan.mockamazonapp.util.Products;
 
 
@@ -38,6 +39,7 @@ public class ViewProductFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBinding = FragmentViewProductBinding.inflate(inflater);
+        mBinding.setIMainActivity((IMainActivity)getActivity());
         ProductViewModel productViewModel=new ProductViewModel();
         productViewModel.setProduct(mProduct);
         productViewModel.setQuantity(1);

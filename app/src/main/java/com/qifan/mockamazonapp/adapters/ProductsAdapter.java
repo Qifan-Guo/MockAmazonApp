@@ -21,7 +21,6 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Bindin
 
     private List<Product> mProducts=new ArrayList<>();
     private Context mContext;
-    IMainActivity mIMainActivity;
 
     public ProductsAdapter(Context context,List<Product> products){
         mContext=context;
@@ -52,6 +51,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Bindin
 
     public class BindingHolder extends RecyclerView.ViewHolder {
         ProductItemBinding mProductItemBinding;
+
         public BindingHolder(@NonNull View itemView) {
             super(itemView);
             mProductItemBinding= DataBindingUtil.bind(itemView);

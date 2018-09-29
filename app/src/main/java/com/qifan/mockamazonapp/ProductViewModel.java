@@ -9,11 +9,13 @@ import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.qifan.mockamazonapp.models.Product;
+import com.qifan.mockamazonapp.util.IMainActivity;
 
 public class ProductViewModel extends BaseObservable {
     private Product mProduct;
     private int mQuantity;
     private boolean Visibility= false;
+
 
 
     @Bindable
